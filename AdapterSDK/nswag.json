@@ -55,7 +55,7 @@
       "outputType": "Swagger2",
       "newLineBehavior": "Auto",
       "assemblyPaths": [
-        "bin/Debug/netcoreapp3.1/AdapterSDK.exe"
+        "bin/Debug/netcoreapp3.1/AdapterSDK.dll"
       ],
       "assemblyConfig": null,
       "referencePaths": [],
@@ -66,7 +66,7 @@
     "openApiToCSharpClient": {
       "clientBaseClass": null,
       "configurationClass": null,
-      "generateClientClasses": false,
+      "generateClientClasses": true,
       "generateClientInterfaces": false,
       "clientBaseInterface": null,
       "injectHttpClient": false,

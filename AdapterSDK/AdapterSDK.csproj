@@ -12,4 +12,13 @@
     </PackageReference>
   </ItemGroup>
 
+	<Target Name="NSwag" BeforeTargets="AfterBuild">
+		<Exec ConsoleToMSBuild="true" ContinueOnError="true" Command="$(NSwagExe_Core31) run nswag.json /variables:Configuration=$(Configuration),CSharpOutputPath=$(MSBuildThisFileDirectory)..\AdapterSDKClient">
+			<Output TaskParameter="ExitCode" PropertyName="NSwagExitCode"/>
+			<Output TaskParameter="ConsoleOutput" PropertyName="NSwagOutput" />
+		</Exec>
+
+		<Message Text="$(NSwagOutput)" Condition="'$(NSwagExitCode)' == '0'" Importance="low"/>
+		<Error Text="$(NSwagOutput)" Condition="'$(NSwagExitCode)' != '0'"/>
+	</Target>
 </Project>
