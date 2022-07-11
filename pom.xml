@@ -26,7 +26,7 @@
     <url>https://github.com/FileAnalysisSuite/adapter-rest-contract</url>
     
     <groupId>com.github.fileanalysissuite.adaptersdk.restadapter</groupId>
-    <artifactId>adaptersdk.restadapter</artifactId>
+    <artifactId>adaptersdk-restadapter</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
@@ -55,9 +55,9 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>com.github.jobservice</groupId>
+                <groupId>com.github.fileanalysissuite.adaptersdk.restadapter</groupId>
                 <artifactId>restadapter-contract</artifactId>
-                <version>5.1.0-SNAPSHOT</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>com.google.code.gson</groupId>

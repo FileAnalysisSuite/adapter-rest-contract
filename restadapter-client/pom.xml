@@ -20,14 +20,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+	
     <groupId>com.github.fileanalysissuite.adaptersdk.restadapter.dotnetclient</groupId>
     <artifactId>restadapter-client</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>dll</packaging>
+    <packaging>jar</packaging>
     <name>restadapter-client</name>
     <description>.Net Client Code</description>
     <url>https://github.com/FileAnalysisSuite/adapter-rest-contract</url>
-       
 
+	<parent>
+       <groupId>com.github.fileanalysissuite.adaptersdk.restadapter</groupId>
+	   <artifactId>adaptersdk-restadapter</artifactId>
+       <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+	<inceptionYear>2022</inceptionYear>
+	
 </project>
