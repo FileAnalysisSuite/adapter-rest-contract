@@ -34,6 +34,8 @@
     <name>restadapter-client</name>
     <description>.Net Client Code</description>
     <url>https://github.com/FileAnalysisSuite/adapter-rest-contract</url>
-       
 
+
+	<inceptionYear>2022</inceptionYear>
+	
 </project>
