@@ -38,7 +38,7 @@
     
     <properties>
         <copyrightYear>2021</copyrightYear>
-        <swagger-contract-version>${project.version}</swagger-contract-version>
+        <openapi-contract-version>${project.version}</openapi-contract-version>
     </properties>
     
     <dependencies>
@@ -84,7 +84,7 @@
                     <dependency>
                         <groupId>com.github.fileanalysissuite.adaptersdk.restadapter</groupId>
 					    <artifactId>restadapter-contract</artifactId>
-					    <version>${swagger-contract-version}</version>
+					    <version>${openapi-contract-version}</version>
                     </dependency>
                 </dependencies>
                 <executions>
