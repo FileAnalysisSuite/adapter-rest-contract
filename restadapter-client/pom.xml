@@ -37,7 +37,7 @@
 	<inceptionYear>2022</inceptionYear>
 
     <properties>
-        <copyrightYear>2021</copyrightYear>
+        <copyrightYear>2022</copyrightYear>
         <swagger-contract-version>${project.version}</swagger-contract-version>
     </properties>
 	
@@ -106,9 +106,9 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-codegen-maven-plugin</artifactId>
-                <version>2.2.3</version>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>6.0.1</version>
                 <dependencies>
                     <dependency>
                         <groupId>com.github.fileanalysissuite.adaptersdk.restadapter</groupId>
@@ -124,12 +124,12 @@
                         </goals>
                         <configuration>
                             <inputSpec>/io/github/fileanalysissuite/adaptersdk/restadapter/swagger.yaml</inputSpec>
-                            <language>csharp</language>
-                            <output>${project.build.directory}/swagger-codegen</output>
+                            <generatorName>csharp</generatorName>
+                            <output>${project.build.directory}/openapi-codegen</output>
                             <addCompileSourceRoot>false</addCompileSourceRoot>
-                            <packageName>io.github.fileanalysissuite.adaptersdk.restadapter</packageName>
-                            <modelPackage>io.github.fileanalysissuite.adaptersdk.restadapter.client.model</modelPackage>
-                            <apiPackage>io.github.fileanalysissuite.adaptersdk.restadapter.client.api</apiPackage>
+                            <packageName>adaptersdk.restadapter</packageName>
+                            <modelPackage>adaptersdk.model</modelPackage>
+                            <apiPackage>adaptersdk.api</apiPackage>
                             <invokerPackage>io.github.fileanalysissuite.adaptersdk.restadapter.client</invokerPackage>
                             <configOptions>
                                 <targetFramework>v4.5</targetFramework>
@@ -149,16 +149,16 @@
                 <version>3.0.2</version>
                 <executions>
                     <execution>
-                        <id>copy-swagger-codegen-files</id>
+                        <id>copy-openapi-codegen-files</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/swagger</outputDirectory>
+                            <outputDirectory>${project.build.directory}/openapi</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${project.build.directory}/swagger-codegen/src/main/csharp</directory>
+                                    <directory>${project.build.directory}/openapi-codegen/src/main/csharp</directory>
                                 </resource>
                             </resources>
                         </configuration>
@@ -178,7 +178,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${project.build.directory}/swagger</source>
+                                <source>${project.build.directory}/openapi</source>
                             </sources>
                         </configuration>
                     </execution>

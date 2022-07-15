@@ -77,9 +77,9 @@
 	<build>
         <plugins>
             <plugin>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-codegen-maven-plugin</artifactId>
-                <version>2.2.3</version>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>6.0.1</version>
                 <dependencies>
                     <dependency>
                         <groupId>com.github.fileanalysissuite.adaptersdk.restadapter</groupId>
@@ -95,13 +95,13 @@
                         </goals>
                         <configuration>
                             <inputSpec>/io/github/fileanalysissuite/adaptersdk/restadapter/swagger.yaml</inputSpec>
-                            <language>jaxrs-spec</language>
-                            <output>${project.build.directory}/swagger-codegen</output>
+                            <generatorName>jaxrs-spec</generatorName>
+                            <output>${project.build.directory}/openapi-codegen</output>
                             <addCompileSourceRoot>false</addCompileSourceRoot>
 							<packageName>io.github.fileanalysissuite.adaptersdk.restadapter</packageName>
                             <modelPackage>io.github.fileanalysissuite.adaptersdk.restadapter.server.model</modelPackage>
                             <apiPackage>io.github.fileanalysissuite.adaptersdk.restadapter.server</apiPackage>
-                            <ignoreFileOverride>${project.basedir}/src/main/swagger-config/.swagger-codegen-ignore</ignoreFileOverride>
+                            <ignoreFileOverride>${project.basedir}/src/main/openapi-config/.swagger-codegen-ignore</ignoreFileOverride>
                             <!-- <configOptions>
                                 <dateLibrary>java</dateLibrary>
                                 <delegatePattern>true</delegatePattern>
