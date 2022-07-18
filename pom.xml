@@ -64,13 +64,6 @@
 			</dependency>
 			<!-- Module dependency closed -->
 			
-			<dependency>
-                <groupId>com.github.cafapi</groupId>
-                <artifactId>caf-dependency-management-bom</artifactId>
-                <version>2.0.0-268</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <dependency>
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
@@ -119,11 +112,6 @@
                 <version>2.12.3</version>
                 <scope>import</scope>
                 <type>pom</type>
-            </dependency>
-            <dependency>
-                <groupId>com.github.cafapi</groupId>
-                <artifactId>swagger-ui-annotation</artifactId>
-                <version>1.0.1-60</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>

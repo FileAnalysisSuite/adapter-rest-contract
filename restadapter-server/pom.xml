@@ -52,17 +52,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.github.cafapi</groupId>
-            <artifactId>swagger-ui-annotation</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-annotations</artifactId>
-        </dependency>
+        </dependency> 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -101,13 +91,8 @@
 							<packageName>io.github.fileanalysissuite.adaptersdk.restadapter</packageName>
                             <modelPackage>io.github.fileanalysissuite.adaptersdk.restadapter.server.model</modelPackage>
                             <apiPackage>io.github.fileanalysissuite.adaptersdk.restadapter.server</apiPackage>
-                            <ignoreFileOverride>${project.basedir}/src/main/openapi-config/.swagger-codegen-ignore</ignoreFileOverride>
-                            <!-- <configOptions>
-                                <dateLibrary>java</dateLibrary>
-                                <delegatePattern>true</delegatePattern>
-                            </configOptions> -->
+                            <ignoreFileOverride>${project.basedir}/src/main/openapi-config/.swagger-codegen-ignore</ignoreFileOverride>                            
 							<configOptions>
-                                <targetFramework>v4.5</targetFramework>
                                 <packageVersion>0.0.1</packageVersion>
                                 <groupId>${project.groupId}</groupId>
                                 <artifactId>${project.artifactId}</artifactId>
@@ -142,32 +127,6 @@
                     </execution>
                 </executions>
             </plugin>
-<!-- 			<plugin> -->
-<!--                 <groupId>org.apache.maven.plugins</groupId> -->
-<!--                 <artifactId>maven-dependency-plugin</artifactId> -->
-<!--                 <version>3.0.2</version> -->
-<!--                 <executions> -->
-<!--                     <execution> -->
-<!--                         <id>copy-templates</id> -->
-<!--                         <phase>generate-sources</phase> -->
-<!--                         <goals> -->
-<!--                             <goal>unpack</goal> -->
-<!--                         </goals> -->
-<!--                         <configuration> -->
-<!--                             <outputDirectory>${project.build.directory}/templates</outputDirectory> -->
-<!--                             <artifactItems> -->
-<!--                                 <artifactItem> -->
-<!--                                     <groupId>com.github.cafapi</groupId> -->
-<!--                                     <artifactId>swagger-client-templates</artifactId> -->
-<!--                                     <version>1.0.1-60</version> -->
-<!--                                     <type>zip</type> -->
-<!--                                     <overWrite>true</overWrite> -->
-<!--                                 </artifactItem> -->
-<!--                             </artifactItems> -->
-<!--                         </configuration> -->
-<!--                     </execution> -->
-<!--                 </executions> -->
-<!--             </plugin> -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
