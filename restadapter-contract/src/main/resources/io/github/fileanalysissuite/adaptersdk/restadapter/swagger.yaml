@@ -1,5 +1,5 @@
 #
-# Copyright 2016-2022 Micro Focus or one of its affiliates.
+# Copyright 2022 Micro Focus or one of its affiliates.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,10 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 openapi: 3.0.0
-servers:
-  - description: The REST Adapter operations
-    url: https://virtserver.swaggerhub.com/KRZYSZTOFPLOCH/rest-adapter/1.0.0
 info:
   description: REST Adapter Contract
   version: "1.0.0"
@@ -202,4 +200,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FailureDetails'
-        
