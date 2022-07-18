@@ -59,7 +59,6 @@
                         <configuration>
                             <inputSpec>/io/github/fileanalysissuite/adapters/rest/contract/swagger.yaml</inputSpec>
                             <generatorName>csharp</generatorName>
-                            <output>${project.build.directory}/openapi-codegen</output>
                             <addCompileSourceRoot>false</addCompileSourceRoot>
                             <packageName>MicroFocus.FAS.Adapters.Rest.Client</packageName>
                             <modelPackage>Model</modelPackage>
