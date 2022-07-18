@@ -115,6 +115,19 @@
                         </configuration>
                     </execution>
                     <execution>
+                        <id>exec-dotnet-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>dotnet</executable>
+                            <arguments>
+                                <argument>test</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>exec-dotnet-pack</id>
                         <phase>package</phase>
                         <goals>
