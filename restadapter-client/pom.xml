@@ -79,8 +79,8 @@
                             <output>${project.build.directory}/openapi-codegen</output>
                             <addCompileSourceRoot>false</addCompileSourceRoot>
                             <packageName>MicroFocus.FAS.RestAdapter.Client</packageName>
-                            <modelPackage>model</modelPackage>
-                            <apiPackage>api</apiPackage>
+                            <modelPackage>Model</modelPackage>
+                            <apiPackage>Api</apiPackage>
                             <invokerPackage>MicroFocus.FAS.RestAdapter.Client</invokerPackage>
                             <configOptions>
                                 <targetFramework>v4.5</targetFramework>
