@@ -61,8 +61,6 @@
                             <generatorName>csharp</generatorName>
                             <addCompileSourceRoot>false</addCompileSourceRoot>
                             <packageName>MicroFocus.FAS.Adapters.Rest.Client</packageName>
-                            <modelPackage>Model</modelPackage>
-                            <apiPackage>Api</apiPackage>
                             <configOptions>
                                 <targetFramework>v4.5</targetFramework>
                                 <packageVersion>0.0.1</packageVersion>
