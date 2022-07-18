@@ -59,9 +59,14 @@
                         <configuration>
                             <inputSpec>/io/github/fileanalysissuite/adapters/rest/contract/swagger.yaml</inputSpec>
                             <generatorName>csharp-netcore</generatorName>
+                            <gitUserId>FileAnalysisSuite</gitUserId>
+                            <gitRepoId>adapter-rest-contract</gitRepoId>
                             <addCompileSourceRoot>false</addCompileSourceRoot>
                             <packageName>MicroFocus.FAS.Adapters.Rest.Client</packageName>
                             <configOptions>
+                                <packageGuid>{5CC863B4-F7B2-4565-909C-32E8C05B13E9}</packageGuid>
+                                <licenseId>Apache-2.0</licenseId>
+                                <releaseNote>See https://github.com/FileAnalysisSuite/adapter-rest-contract/releases</releaseNote>
                                 <targetFramework>netstandard2.0</targetFramework>
                                 <packageVersion>0.0.1</packageVersion>
                             </configOptions>
