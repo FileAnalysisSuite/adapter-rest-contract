@@ -84,7 +84,7 @@
                                 <groupId>${project.groupId}</groupId>
                                 <artifactId>${project.artifactId}</artifactId>
                                 <artifactVersion>${project.version}</artifactVersion>
-                                <dateLibrary>joda</dateLibrary>
+                                <dateLibrary>java8</dateLibrary>
                             </configOptions>
                             <addCompileSourceRoot>false</addCompileSourceRoot>
                         </configuration>
