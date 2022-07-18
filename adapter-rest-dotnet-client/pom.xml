@@ -30,6 +30,10 @@
     <artifactId>adapter-rest-dotnet-client</artifactId>
     <packaging>pom</packaging>
 
+    <properties>
+        <nugetOutputFolder>${project.build.directory}</nugetOutputFolder>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>io.github.fileanalysissuite.adapters.rest.contract</groupId>
@@ -70,6 +74,74 @@
                                 <targetFramework>netstandard2.0</targetFramework>
                                 <packageVersion>0.0.1</packageVersion>
                             </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <configuration>
+                    <environmentVariables>
+                        <VERSION>${project.version}</VERSION>
+                    </environmentVariables>
+                    <workingDirectory>${project.build.directory}/generated-sources/openapi</workingDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>exec-dotnet-restore</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>dotnet</executable>
+                            <arguments>
+                                <argument>restore</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>exec-dotnet-build</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>dotnet</executable>
+                            <arguments>
+                                <argument>build</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>exec-dotnet-pack</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>dotnet</executable>
+                            <arguments>
+                                <argument>pack</argument>
+                                <argument>--no-build</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>exec-dotnet-pack-for-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>dotnet</executable>
+                            <arguments>
+                                <argument>pack</argument>
+                                <argument>--no-build</argument>
+                                <argument>--output</argument>
+                                <argument>${nugetOutputFolder}</argument>
+                            </arguments>
                         </configuration>
                     </execution>
                 </executions>
