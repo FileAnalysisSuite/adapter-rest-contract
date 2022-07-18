@@ -1,0 +1,202 @@
+#
+# Copyright 2022 Micro Focus or one of its affiliates.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+openapi: 3.0.0
+info:
+  description: REST Adapter Contract
+  version: "1.0.0"
+  title: REST Adapter Contract
+  contact:
+    email: krzysztof.ploch@microfocus.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: adapter
+    description: Rest Adapter API
+paths:
+  /retrieveFileList:
+    post:
+      tags:
+        - adapter
+      summary: Retrieves a list of items
+      description: Retrieves a list of files (or repository items) including basic metadata like title and timestamps.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetrieveFileListRequest'
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetrieveFileListResponse'
+        '400':
+          description: 'invalid input'
+
+  /retrieveFilesData:
+    post:
+      tags:
+        - adapter
+      summary: Retrieves files data
+      description: Retrieves the content and expensive metadata for the files provided in the request.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetrieveFileDataRequest'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetrieveFileDataResponse'
+        
+        '400':
+          description: 'invalid input, object invalid'
+
+components:
+  schemas:
+    RepositoryOptions:
+      type: object
+      additionalProperties:
+        type: string
+
+    ConfigurationOptions:
+      type: object
+      additionalProperties:
+        type: string
+
+    RepositoryProperties:
+      type: object
+      properties:
+        configurationOptions:
+          $ref: '#/components/schemas/ConfigurationOptions'
+        repositoryOptions:
+          $ref: '#/components/schemas/RepositoryOptions'
+
+    FailureDetails:
+      type: object
+      properties:
+        exceptions:
+          type: array
+          items:
+            type: string
+        message:
+          type: string
+    
+    RetrieveFileListRequest:
+      type: object
+      description: RetrieveFileList operation parameters.
+      properties:
+        additionalFilter:
+          type: string
+          description: Additional filter
+        repositoryProperties:
+          $ref: '#/components/schemas/RepositoryProperties'  
+    
+    RetrieveFileListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileListItem'
+        failures:
+          type: array
+          items:
+            $ref: '#/components/schemas/FailureDetails'
+    
+    FileListItem:
+      type: object
+      properties:
+        itemMetadata:
+          $ref: '#/components/schemas/ItemMetadata'
+        partitionHint:
+          type: string
+
+    ItemMetadata:
+      type: object
+      required:
+        - itemLocation
+        - size
+        - modifiedTime
+      description: Item metadata.
+      properties:
+        itemLocation:
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        size:
+          type: integer
+        createdTime:
+          type: string
+        accessedTime:
+          type: string
+        modifiedTime:
+          type: string
+        version:
+          type: integer
+        additionalMetadata:
+          type: object
+          additionalProperties:
+            type: string
+    
+    RepositoryItem:
+      type: object
+      properties:
+        itemId:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ItemMetadata'
+    
+    RetrieveFileDataRequest:
+      type: object
+      properties:
+        repositoryProperties:
+          $ref: '#/components/schemas/RepositoryProperties'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/RepositoryItem'
+    
+    FileDataItem:
+      type: object
+      properties:
+        itemId:
+          type: string
+        fileContents:
+          type: string
+          format: base64
+        metadata:
+          $ref: '#/components/schemas/ItemMetadata'
+
+    RetrieveFileDataResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileDataItem'
+        failures:
+          type: array
+          items:
+            $ref: '#/components/schemas/FailureDetails'
