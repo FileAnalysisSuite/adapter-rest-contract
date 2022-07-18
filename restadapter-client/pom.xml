@@ -78,9 +78,9 @@
                             <generatorName>csharp</generatorName>
                             <output>${project.build.directory}/openapi-codegen</output>
                             <addCompileSourceRoot>false</addCompileSourceRoot>
-                            <packageName>adaptersdk.restadapter</packageName>
-                            <modelPackage>adaptersdk.model</modelPackage>
-                            <apiPackage>adaptersdk.api</apiPackage>
+                            <packageName>MicroFocus.FAS.RestAdapter</packageName>
+                            <modelPackage>model</modelPackage>
+                            <apiPackage>api</apiPackage>
                             <invokerPackage>io.github.fileanalysissuite.adaptersdk.restadapter.client</invokerPackage>
                             <configOptions>
                                 <targetFramework>v4.5</targetFramework>
