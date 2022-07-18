@@ -21,25 +21,53 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>adapter-rest-contract</name>
-    <description>REST Adapter contract and auto-generated code</description>
-    <url>https://github.com/FileAnalysisSuite/adapter-rest-contract</url>
-
     <parent>
         <groupId>com.github.cafapi</groupId>
         <artifactId>caf-common-parent</artifactId>
         <version>2.4.0-254</version>
     </parent>
 
-    <groupId>com.github.fileanalysissuite.adaptersdk.restadapter</groupId>
-    <artifactId>adaptersdk-restadapter</artifactId>
-    <packaging>pom</packaging>
+    <groupId>io.github.fileanalysissuite.adapters.rest.contract</groupId>
+    <artifactId>adapter-rest-contract-aggregator</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <description>REST Adapter contract and auto-generated code</description>
+    <url>https://github.com/FileAnalysisSuite/adapter-rest-contract</url>
+
+    <inceptionYear>2022</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>kploch</id>
+            <name>Krzysztof Ploch</name>
+            <email>krzysztof.ploch@microfocus.com</email>
+        </developer>
+    </developers>
+
     <modules>
         <module>restadapter-contract</module>
     </modules>
 
-    <inceptionYear>2022</inceptionYear>
+    <scm>
+        <connection>scm:git:https://github.com/FileAnalysisSuite/adapter-rest-contract.git</connection>
+        <developerConnection>scm:git:https://github.com/FileAnalysisSuite/adapter-rest-contract.git</developerConnection>
+        <url>https://github.com/FileAnalysisSuite/adapter-rest-contract.git</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh-s01</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <properties>
         <copyrightYear>2022</copyrightYear>
@@ -51,106 +79,25 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Module dependency -->
             <dependency>
-                <groupId>com.github.fileanalysissuite.adaptersdk.restadapter.dotnetclient</groupId>
-                <artifactId>restadapter-client</artifactId>
+                <groupId>io.github.fileanalysissuite.adapters.rest.contract</groupId>
+                <artifactId>adapter-rest-contract</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
-            <dependency>
-                <groupId>com.github.fileanalysissuite.adaptersdk.restadapter.server</groupId>
-                <artifactId>restadapter-server</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.fileanalysissuite.adaptersdk.restadapter</groupId>
-                <artifactId>restadapter-contract</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-            </dependency>
-            <!-- Module dependency closed -->
-
-            <dependency>
-                <groupId>com.google.code.gson</groupId>
-                <artifactId>gson</artifactId>
-                <version>2.8.6</version>
-            </dependency>
-            <dependency>
-                <groupId>com.squareup.okhttp</groupId>
-                <artifactId>okhttp</artifactId>
-                <version>2.7.5</version>
-            </dependency>
-            <dependency>
-                <groupId>com.squareup.okio</groupId>
-                <artifactId>okio</artifactId>
-                <version>2.5.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.squareup.okhttp</groupId>
-                <artifactId>logging-interceptor</artifactId>
-                <version>2.7.5</version>
-            </dependency>
-            <dependency>
-                <groupId>cz.jirutka.rsql</groupId>
-                <artifactId>rsql-parser</artifactId>
-                <version>2.0.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>6.0.1</version>
-            </dependency>
-            <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time</artifactId>
-                <version>2.10.6</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>1.7.26</version>
-            </dependency>
-            
-            <!-- Server stub dependencies -->
-            <dependency>
-                <groupId>com.fasterxml.jackson</groupId>
-                <artifactId>jackson-bom</artifactId>
-                <version>2.12.3</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>2.10.0</version>
-            </dependency>
-            <dependency>
-                <groupId>io.gsonfire</groupId>
-                <artifactId>gson-fire</artifactId>
-                <version>1.8.5</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.annotation</groupId>
-                <artifactId>javax.annotation-api</artifactId>
-                <version>1.3.2</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>3.12.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.threeten</groupId>
-                <artifactId>threetenbp</artifactId>
-                <version>1.5.1</version>
-            </dependency>
-            <!-- Server stub dependencies closed -->
         </dependencies>
     </dependencyManagement>
 
-    <scm>
-        <connection>scm:git:https://github.com/FileAnalysisSuite/adapter-rest-contract.git</connection>
-        <developerConnection>scm:git:https://github.com/FileAnalysisSuite/adapter-rest-contract.git</developerConnection>
-        <url>https://github.com/FileAnalysisSuite/adapter-rest-contract.git</url>
-    </scm>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <configuration>
+                    <serverId>ossrh-s01</serverId>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
