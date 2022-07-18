@@ -63,7 +63,6 @@
                             <packageName>MicroFocus.FAS.Adapters.Rest.Client</packageName>
                             <modelPackage>Model</modelPackage>
                             <apiPackage>Api</apiPackage>
-                            <invokerPackage>MicroFocus.FAS.Adapters.Rest.Client</invokerPackage>
                             <configOptions>
                                 <targetFramework>v4.5</targetFramework>
                                 <packageVersion>0.0.1</packageVersion>
