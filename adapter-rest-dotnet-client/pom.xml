@@ -61,10 +61,10 @@
                             <generatorName>csharp</generatorName>
                             <output>${project.build.directory}/openapi-codegen</output>
                             <addCompileSourceRoot>false</addCompileSourceRoot>
-                            <packageName>MicroFocus.FAS.RestAdapter.Client</packageName>
+                            <packageName>MicroFocus.FAS.Adapters.Rest.Client</packageName>
                             <modelPackage>Model</modelPackage>
                             <apiPackage>Api</apiPackage>
-                            <invokerPackage>MicroFocus.FAS.RestAdapter.Client</invokerPackage>
+                            <invokerPackage>MicroFocus.FAS.Adapters.Rest.Client</invokerPackage>
                             <configOptions>
                                 <targetFramework>v4.5</targetFramework>
                                 <packageVersion>0.0.1</packageVersion>
