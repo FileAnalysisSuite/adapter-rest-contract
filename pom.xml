@@ -52,18 +52,6 @@
         </developer>
     </developers>
 
-    <organization>
-        <name>Micro Focus</name>
-        <url>https://www.microfocus.com/en-us/home</url>
-    </organization>
-
-    <mailingLists>
-        <mailingList>
-            <name>Micro Focus FAS R&#38;D</name>
-            <archive>dev@microfocus.com</archive>
-        </mailingList>
-    </mailingLists>
-
     <modules>
         <module>adapter-rest-contract</module>
         <module>adapter-rest-dotnet-client</module>

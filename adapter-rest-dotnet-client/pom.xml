@@ -68,6 +68,10 @@
                             <addCompileSourceRoot>false</addCompileSourceRoot>
                             <packageName>MicroFocus.FAS.Adapters.Rest.Client</packageName>
                             <configOptions>
+                                <packageCopyright>Micor Focus @ 2022</packageCopyright>
+                                <packageAuthors>Micro Focus</packageAuthors>
+                                <packageTitle>REST Adapter</packageTitle>
+                                <packageDescription>REST Adapter and auto code generator</packageDescription>
                                 <packageVersion>${project.version}</packageVersion>
                                 <packageGuid>{5CC863B4-F7B2-4565-909C-32E8C05B13E9}</packageGuid>
                                 <licenseId>Apache-2.0</licenseId>
@@ -114,19 +118,6 @@
                             </arguments>
                         </configuration>
                     </execution>
-                    <!-- <execution>
-                        <id>exec-dotnet-test</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>dotnet</executable>
-                            <arguments>
-                                <argument>test</argument>
-                            </arguments>
-                        </configuration>
-                    </execution> -->
                     <execution>
                         <id>exec-dotnet-pack</id>
                         <phase>package</phase>
