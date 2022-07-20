@@ -115,6 +115,8 @@
                             <executable>dotnet</executable>
                             <arguments>
                                 <argument>build</argument>
+                                <argument>--configuration</argument>
+                                <argument>Release</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -128,6 +130,8 @@
                             <executable>dotnet</executable>
                             <arguments>
                                 <argument>pack</argument>
+                                <argument>--configuration</argument>
+                                <argument>Release</argument>
                                 <argument>--no-build</argument>
                             </arguments>
                         </configuration>
@@ -142,6 +146,8 @@
                             <executable>dotnet</executable>
                             <arguments>
                                 <argument>pack</argument>
+                                <argument>--configuration</argument>
+                                <argument>Release</argument>
                                 <argument>--no-build</argument>
                                 <argument>--output</argument>
                                 <argument>${nugetOutputFolder}</argument>
