@@ -63,6 +63,7 @@
                         <configuration>
                             <inputSpec>/io/github/fileanalysissuite/adapters/rest/contract/swagger.yaml</inputSpec>
                             <generatorName>csharp-netcore</generatorName>
+                            <output>${project.build.directory}/openapi-codegen</output>
                             <gitUserId>FileAnalysisSuite</gitUserId>
                             <gitRepoId>adapter-rest-contract</gitRepoId>
                             <addCompileSourceRoot>false</addCompileSourceRoot>
@@ -83,13 +84,35 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-swagger-codegen-files</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/generated-sources/csharp</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}/openapi-codegen/src</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <configuration>
                     <environmentVariables>
                         <VERSION>${project.version}</VERSION>
                     </environmentVariables>
-                    <workingDirectory>${project.build.directory}/generated-sources/openapi</workingDirectory>
+                    <workingDirectory>${project.build.directory}/openapi-codegen</workingDirectory>
                 </configuration>
                 <executions>
                     <execution>
