@@ -102,6 +102,8 @@
                             <executable>dotnet</executable>
                             <arguments>
                                 <argument>restore</argument>
+                                <argument>--verbosity</argument>
+                                <argument>normal</argument>
                             </arguments>
                         </configuration>
                     </execution>
