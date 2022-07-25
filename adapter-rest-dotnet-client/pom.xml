@@ -110,15 +110,15 @@
         targetDir + '/openapi-codegen/src/MicroFocus.FAS.Adapters.Rest.Client/MicroFocus.FAS.Adapters.Rest.Client.csproj')
 
     csprojFile.write(csprojFile.text
-        .replaceAll('<Authors>OpenAPI</Authors>',
+        .replaceAll('<Authors>.*</Authors>',
                     '<Authors>Micro Focus FAS Development Team</Authors>')
-        .replaceAll('<Copyright>No Copyright</Copyright>',
+        .replaceAll('<Copyright>.*</Copyright>',
                     '<Copyright>' + groovy.xml.XmlUtil.escapeXml(copyrightNotice) + '</Copyright>')
-        .replaceAll('<AssemblyTitle>OpenAPI Library</AssemblyTitle>',
+        .replaceAll('<AssemblyTitle>.*</AssemblyTitle>',
                     '<AssemblyTitle>REST Adapter Client Library</AssemblyTitle>')
-        .replaceAll('<Description>A library generated from a OpenAPI doc</Description>',
+        .replaceAll('<Description>.*</Description>',
                     '<Description>Auto-generated REST Adapter Client Library</Description>')
-        .replaceAll('<Company>OpenAPI</Company>',
+        .replaceAll('<Company>.*</Company>',
                     '<Company>' + groovy.xml.XmlUtil.escapeXml(company) + '</Company>'))
                                 ]]>
                                 </script>
