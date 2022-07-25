@@ -54,6 +54,7 @@
 
     <modules>
         <module>adapter-rest-contract</module>
+        <module>adapter-rest-dotnet-client</module>
         <module>adapter-rest-java-jaxrs</module>
     </modules>
 
@@ -115,6 +116,11 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
                     <version>3.3.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.openapitools</groupId>
