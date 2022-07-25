@@ -110,16 +110,11 @@
         targetDir + '/openapi-codegen/src/MicroFocus.FAS.Adapters.Rest.Client/MicroFocus.FAS.Adapters.Rest.Client.csproj')
 
     csprojFile.write(csprojFile.text
-        .replaceAll('<Authors>.*</Authors>',
-                    '<Authors>Micro Focus FAS Development Team</Authors>')
-        .replaceAll('<Copyright>.*</Copyright>',
-                    '<Copyright>' + groovy.xml.XmlUtil.escapeXml(copyrightNotice) + '</Copyright>')
-        .replaceAll('<AssemblyTitle>.*</AssemblyTitle>',
-                    '<AssemblyTitle>REST Adapter Client Library</AssemblyTitle>')
-        .replaceAll('<Description>.*</Description>',
-                    '<Description>Auto-generated REST Adapter Client Library</Description>')
-        .replaceAll('<Company>.*</Company>',
-                    '<Company>' + groovy.xml.XmlUtil.escapeXml(company) + '</Company>'))
+        .replaceAll('<Authors>.*</Authors>', '<Authors>Micro Focus FAS Development Team</Authors>')
+        .replaceAll('<Copyright>.*</Copyright>', '<Copyright>' + groovy.xml.XmlUtil.escapeXml(copyrightNotice) + '</Copyright>')
+        .replaceAll('<AssemblyTitle>.*</AssemblyTitle>', '<AssemblyTitle>REST Adapter Client Library</AssemblyTitle>')
+        .replaceAll('<Description>.*</Description>', '<Description>Auto-generated REST Adapter Client Library</Description>')
+        .replaceAll('<Company>.*</Company>', '<Company>' + groovy.xml.XmlUtil.escapeXml(company) + '</Company>'))
                                 ]]>
                                 </script>
                             </scripts>
