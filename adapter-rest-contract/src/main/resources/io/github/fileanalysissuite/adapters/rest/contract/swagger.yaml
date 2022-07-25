@@ -147,6 +147,7 @@ components:
           type: string
         size:
           type: integer
+          format: int64
         createdTime:
           type: string
         accessedTime:
