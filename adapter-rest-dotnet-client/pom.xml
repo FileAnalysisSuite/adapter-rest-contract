@@ -84,7 +84,7 @@
                 <artifactId>gmavenplus-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>copy-openapi-codegen-files-modify-MSbuild-info-csproj-file</id>
+                        <id>update-csproj-file</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>execute</goal>
@@ -95,28 +95,31 @@
                                     <name>targetDir</name>
                                     <value>${project.build.directory}</value>
                                 </property>
+                                <property>
+                                    <name>copyrightNotice</name>
+                                    <value>${copyrightNotice}</value>
+                                </property>
+                                <property>
+                                    <name>company</name>
+                                    <value>${project.organization.name}</value>
+                                </property>
                             </properties>
                             <scripts>
                                 <script><![CDATA[
-                                    new AntBuilder().copy( todir:targetDir + '/openapi-codegen/src/MicroFocus.FAS.Adapters.Rest.Client' ) {
-                                        fileset( dir:targetDir + '/openapi-codegen/src/MicroFocus.FAS.Adapters.Rest.Client' )
-                                    }
-                                    
-                                    def fileToModifyAssets = new File(targetDir + "/openapi-codegen/src/MicroFocus.FAS.Adapters.Rest.Client/MicroFocus.FAS.Adapters.Rest.Client.csproj")
-                                    def fileToModifyTextAssets = fileToModifyAssets.text
-                                    if(fileToModifyTextAssets == null){
-                                            throw Exception();
-                                    }
-                                    def modifiedAuthorText = fileToModifyTextAssets.replaceAll('<Authors>OpenAPI</Authors>', '<Authors>Krzysztof Ploch</Authors>')                                    
+    def csprojFile = new File(
+        targetDir + '/openapi-codegen/src/MicroFocus.FAS.Adapters.Rest.Client/MicroFocus.FAS.Adapters.Rest.Client.csproj')
 
-                                    def modifiedCopyrightText = modifiedAuthorText.replaceAll('<Copyright>No Copyright</Copyright>', '<Copyright>${copyrightNotice}</Copyright>')                                    
-
-                                    def modifiedAssemblyTitleText = modifiedCopyrightText.replaceAll('<AssemblyTitle>OpenAPI Library</AssemblyTitle>', '<AssemblyTitle>REST Adapter Client Library</AssemblyTitle>')                                    
-
-                                    def modifiedDescriptionText = modifiedAssemblyTitleText.replaceAll('<Description>A library generated from a OpenAPI doc</Description>', '<Description>REST Adapter and auto code generator</Description>')                                    
-
-                                    def modifiedCompanyText = modifiedDescriptionText.replaceAll('<Company>OpenAPI</Company>', '<Company>Micro Focus</Company>')
-                                    fileToModifyAssets.write(modifiedCompanyText)
+    csprojFile.write(csprojFile.text
+        .replaceAll('<Authors>OpenAPI</Authors>',
+                    '<Authors>Micro Focus FAS Development Team</Authors>')
+        .replaceAll('<Copyright>No Copyright</Copyright>',
+                    '<Copyright>' + groovy.xml.XmlUtil.escapeXml(copyrightNotice) + '</Copyright>')
+        .replaceAll('<AssemblyTitle>OpenAPI Library</AssemblyTitle>',
+                    '<AssemblyTitle>REST Adapter Client Library</AssemblyTitle>')
+        .replaceAll('<Description>A library generated from a OpenAPI doc</Description>',
+                    '<Description>Auto-generated REST Adapter Client Library</Description>')
+        .replaceAll('<Company>OpenAPI</Company>',
+                    '<Company>' + groovy.xml.XmlUtil.escapeXml(company) + '</Company>'))
                                 ]]>
                                 </script>
                             </scripts>
@@ -127,7 +130,7 @@
                     <dependency>
                         <groupId>org.codehaus.groovy</groupId>
                         <artifactId>groovy-all</artifactId>
-                        <version>2.4.7</version>
+                        <version>2.4.21</version>
                         <scope>runtime</scope>
                     </dependency>
                 </dependencies>
