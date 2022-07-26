@@ -95,6 +95,8 @@ components:
           type: string
         isRequired:
           type: boolean
+        isEncrypted:
+          type: string
       required:
         - name
     
