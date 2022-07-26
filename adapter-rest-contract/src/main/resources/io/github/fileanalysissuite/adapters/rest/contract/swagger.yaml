@@ -28,6 +28,22 @@ tags:
   - name: adapter
     description: Rest Adapter API
 paths:
+  /adapterDescriptor:
+    get:
+      tags:
+        - adapter
+      summary: Retrieves a descriptor of the adapter
+      description: Retrieves an adapter descriptor containing the adapter name and configuration options.
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdapterDescriptor'
+        '500':
+          description: Failed to create the descriptor.
+  
   /retrieveFileList:
     post:
       tags:
@@ -48,7 +64,6 @@ paths:
                 $ref: '#/components/schemas/RetrieveFileListResponse'
         '400':
           description: 'invalid input'
-
   /retrieveFilesData:
     post:
       tags:
@@ -73,16 +88,34 @@ paths:
 
 components:
   schemas:
+    RepositorySettingDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+        isRequired:
+          type: boolean
+    
+    AdapterDescriptor:
+      type: object
+      properties:
+        adapterType:
+          type: string
+        propertyDefinition:
+          type: array
+          items:
+            $ref: '#/components/schemas/RepositorySettingDefinition'
+    
     RepositoryOptions:
       type: object
       additionalProperties:
         type: string
-
+    
     ConfigurationOptions:
       type: object
       additionalProperties:
         type: string
-
+    
     RepositoryProperties:
       type: object
       properties:
@@ -109,7 +142,8 @@ components:
           type: string
           description: Additional filter
         repositoryProperties:
-          $ref: '#/components/schemas/RepositoryProperties'  
+          $ref: '#/components/schemas/RepositoryProperties'
+    
     
     RetrieveFileListResponse:
       type: object
@@ -130,7 +164,7 @@ components:
           $ref: '#/components/schemas/ItemMetadata'
         partitionHint:
           type: string
-
+    
     ItemMetadata:
       type: object
       required:
