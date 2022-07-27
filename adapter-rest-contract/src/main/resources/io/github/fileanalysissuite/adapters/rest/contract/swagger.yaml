@@ -135,10 +135,6 @@ components:
       properties:
         itemLocation:
           type: string
-        exceptions:
-          type: array
-          items:
-            type: string
         message:
           type: string
       required:
