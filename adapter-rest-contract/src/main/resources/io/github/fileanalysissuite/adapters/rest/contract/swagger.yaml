@@ -187,14 +187,18 @@ components:
           nullable: true
         size:
           type: integer
+          format: int64
         createdTime:
           type: string
+          format: date-time
           nullable: true
         accessedTime:
           type: string
+          format: date-time
           nullable: true
         modifiedTime:
           type: string
+          format: date-time
         version:
           type: integer
           nullable: true
