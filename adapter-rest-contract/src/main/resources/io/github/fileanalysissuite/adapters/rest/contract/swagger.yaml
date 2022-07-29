@@ -184,21 +184,26 @@ components:
           type: string
         title:
           type: string
+          nullable: true
         size:
           type: integer
         createdTime:
           type: string
+          nullable: true
         accessedTime:
           type: string
+          nullable: true
         modifiedTime:
           type: string
         version:
           type: integer
+          nullable: true
         additionalMetadata:
           type: object
           additionalProperties:
             type: string
       required:
+        - name
         - itemLocation
         - size
         - modifiedTime
