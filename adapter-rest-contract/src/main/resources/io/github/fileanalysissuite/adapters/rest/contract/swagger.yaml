@@ -243,12 +243,12 @@ components:
         fileContents:
           type: string
           format: base64
-        metadata:
+        itemMetadata:
           $ref: '#/components/schemas/ItemMetadata'
       required:
         - itemId
         - fileContents
-        - metadata
+        - itemMetadata
 
     RetrieveFileDataResponse:
       type: object
