@@ -28,6 +28,22 @@ tags:
   - name: adapter
     description: Rest Adapter API
 paths:
+  /adapterDescriptor:
+    get:
+      tags:
+        - adapter
+      summary: Retrieves a descriptor of the adapter
+      description: Retrieves an adapter descriptor containing the adapter name and configuration options.
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdapterDescriptor'
+        '500':
+          description: Failed to create the descriptor.
+  
   /retrieveFileList:
     post:
       tags:
@@ -48,7 +64,6 @@ paths:
                 $ref: '#/components/schemas/RetrieveFileListResponse'
         '400':
           description: 'invalid input'
-
   /retrieveFilesData:
     post:
       tags:
@@ -73,16 +88,40 @@ paths:
 
 components:
   schemas:
+    RepositorySettingDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+        isRequired:
+          type: boolean
+        isEncrypted:
+          type: string
+      required:
+        - name
+    
+    AdapterDescriptor:
+      type: object
+      properties:
+        adapterType:
+          type: string
+        propertyDefinition:
+          type: array
+          items:
+            $ref: '#/components/schemas/RepositorySettingDefinition'
+      required:
+        - adapterType
+    
     RepositoryOptions:
       type: object
       additionalProperties:
         type: string
-
+    
     ConfigurationOptions:
       type: object
       additionalProperties:
         type: string
-
+    
     RepositoryProperties:
       type: object
       properties:
@@ -94,12 +133,12 @@ components:
     FailureDetails:
       type: object
       properties:
-        exceptions:
-          type: array
-          items:
-            type: string
+        itemLocation:
+          type: string
         message:
           type: string
+      required:
+        - message
     
     RetrieveFileListRequest:
       type: object
@@ -109,7 +148,8 @@ components:
           type: string
           description: Additional filter
         repositoryProperties:
-          $ref: '#/components/schemas/RepositoryProperties'  
+          $ref: '#/components/schemas/RepositoryProperties'
+    
     
     RetrieveFileListResponse:
       type: object
@@ -130,13 +170,12 @@ components:
           $ref: '#/components/schemas/ItemMetadata'
         partitionHint:
           type: string
-
+      required:
+        - itemMetadata
+        - partitionHint
+    
     ItemMetadata:
       type: object
-      required:
-        - itemLocation
-        - size
-        - modifiedTime
       description: Item metadata.
       properties:
         itemLocation:
@@ -145,21 +184,33 @@ components:
           type: string
         title:
           type: string
+          nullable: true
         size:
           type: integer
           format: int64
         createdTime:
           type: string
+          format: date-time
+          nullable: true
         accessedTime:
           type: string
+          format: date-time
+          nullable: true
         modifiedTime:
           type: string
+          format: date-time
         version:
           type: integer
+          nullable: true
         additionalMetadata:
           type: object
           additionalProperties:
             type: string
+      required:
+        - name
+        - itemLocation
+        - size
+        - modifiedTime
     
     RepositoryItem:
       type: object
@@ -168,6 +219,9 @@ components:
           type: string
         metadata:
           $ref: '#/components/schemas/ItemMetadata'
+      required:
+        - itemId
+        - metadata
     
     RetrieveFileDataRequest:
       type: object
@@ -178,6 +232,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RepositoryItem'
+      required:
+        - items
     
     FileDataItem:
       type: object
@@ -187,8 +243,12 @@ components:
         fileContents:
           type: string
           format: base64
-        metadata:
+        itemMetadata:
           $ref: '#/components/schemas/ItemMetadata'
+      required:
+        - itemId
+        - fileContents
+        - itemMetadata
 
     RetrieveFileDataResponse:
       type: object
