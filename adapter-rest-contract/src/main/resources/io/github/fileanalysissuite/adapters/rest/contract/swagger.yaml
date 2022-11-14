@@ -190,15 +190,24 @@ components:
           format: int64
         createdTime:
           type: string
-          format: date-time
+          oneOf:
+            - format: date-time
+            - pattern: '-1000000000-01-01T00:00Z'
+            - pattern: '1000000000-12-31T23:59:59.999999999Z'
           nullable: true
         accessedTime:
           type: string
-          format: date-time
+          oneOf:
+            - format: date-time
+            - pattern: '-1000000000-01-01T00:00Z'
+            - pattern: '1000000000-12-31T23:59:59.999999999Z'
           nullable: true
         modifiedTime:
           type: string
-          format: date-time
+          oneOf:
+            - format: date-time
+            - pattern: '-1000000000-01-01T00:00Z'
+            - pattern: '1000000000-12-31T23:59:59.999999999Z'
         version:
           type: integer
           nullable: true
