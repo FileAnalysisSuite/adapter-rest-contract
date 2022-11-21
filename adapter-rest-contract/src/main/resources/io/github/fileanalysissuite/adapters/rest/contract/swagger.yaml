@@ -48,8 +48,8 @@ paths:
     post:
       tags:
         - adapter
-      summary: Retrieves a list of items
-      description: Retrieves a list of files (or repository items) including basic metadata like title and timestamps.
+      summary: Retrieves a list of files
+      description: Retrieves a list of files (or repository files) including basic metadata like title and timestamps.
       requestBody:
         content:
           application/json:
@@ -133,7 +133,7 @@ components:
     FailureDetails:
       type: object
       properties:
-        itemLocation:
+        fileLocation:
           type: string
         message:
           type: string
@@ -154,7 +154,7 @@ components:
     RetrieveFileListResponse:
       type: object
       properties:
-        items:
+        files:
           type: array
           items:
             $ref: '#/components/schemas/FileListItem'
@@ -166,19 +166,19 @@ components:
     FileListItem:
       type: object
       properties:
-        itemMetadata:
-          $ref: '#/components/schemas/ItemMetadata'
+        fileMetadata:
+          $ref: '#/components/schemas/FileMetadata'
         partitionHint:
           type: string
       required:
-        - itemMetadata
+        - fileMetadata
         - partitionHint
     
-    ItemMetadata:
+    FileMetadata:
       type: object
-      description: Item metadata.
+      description: File metadata.
       properties:
-        itemLocation:
+        fileLocation:
           type: string
         name:
           type: string
@@ -208,19 +208,19 @@ components:
             type: string
       required:
         - name
-        - itemLocation
+        - fileLocation
         - size
         - modifiedTime
     
-    RepositoryItem:
+    RepositoryFile:
       type: object
       properties:
-        itemId:
+        fileId:
           type: string
         metadata:
-          $ref: '#/components/schemas/ItemMetadata'
+          $ref: '#/components/schemas/FileMetadata'
       required:
-        - itemId
+        - fileId
         - metadata
     
     RetrieveFileDataRequest:
@@ -228,32 +228,32 @@ components:
       properties:
         repositoryProperties:
           $ref: '#/components/schemas/RepositoryProperties'
-        items:
+        files:
           type: array
           items:
-            $ref: '#/components/schemas/RepositoryItem'
+            $ref: '#/components/schemas/RepositoryFile'
       required:
-        - items
+        - files
     
     FileDataItem:
       type: object
       properties:
-        itemId:
+        fileId:
           type: string
         fileContents:
           type: string
           format: base64
-        itemMetadata:
-          $ref: '#/components/schemas/ItemMetadata'
+        fileMetadata:
+          $ref: '#/components/schemas/FileMetadata'
       required:
-        - itemId
+        - fileId
         - fileContents
-        - itemMetadata
+        - fileMetadata
 
     RetrieveFileDataResponse:
       type: object
       properties:
-        items:
+        files:
           type: array
           items:
             $ref: '#/components/schemas/FileDataItem'
