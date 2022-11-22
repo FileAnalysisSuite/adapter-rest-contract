@@ -188,6 +188,7 @@ components:
         size:
           type: integer
           format: int64
+          nullable: true
         createdTime:
           type: string
           format: date-time
@@ -209,7 +210,6 @@ components:
       required:
         - name
         - fileLocation
-        - size
         - modifiedTime
     
     RepositoryFile:
