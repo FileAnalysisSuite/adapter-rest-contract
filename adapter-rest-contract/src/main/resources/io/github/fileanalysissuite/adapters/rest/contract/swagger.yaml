@@ -185,10 +185,6 @@ components:
         title:
           type: string
           nullable: true
-        size:
-          type: integer
-          format: int64
-          nullable: true
         createdTime:
           type: string
           format: date-time
