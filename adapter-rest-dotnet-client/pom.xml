@@ -68,6 +68,7 @@
                             <gitRepoId>adapter-rest-contract</gitRepoId>
                             <addCompileSourceRoot>false</addCompileSourceRoot>
                             <packageName>MicroFocus.FAS.Adapters.Rest.Client</packageName>
+                            <library>httpclient</library>
                             <configOptions>
                                 <packageVersion>${project.version}</packageVersion>
                                 <packageGuid>{5CC863B4-F7B2-4565-909C-32E8C05B13E9}</packageGuid>
