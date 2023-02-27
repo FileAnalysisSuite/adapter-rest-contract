@@ -242,10 +242,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RepositoryFile'
-        retries:
-          type: array
-          items:
-            $ref: '#/components/schemas/RetryFileInfo'
 
     FileDataItem:
       type: object
@@ -273,3 +269,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FailureDetails'
+        retries:
+          type: array
+          items:
+            $ref: '#/components/schemas/RetryFileInfo'
