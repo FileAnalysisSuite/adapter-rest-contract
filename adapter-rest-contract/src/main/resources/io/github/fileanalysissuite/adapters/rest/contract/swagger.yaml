@@ -248,6 +248,18 @@ components:
         - fileContents
         - fileMetadata
 
+    RetryFileInfo:
+      type: object
+      properties:
+        fileId:
+          type: string
+        retryAfter:
+          type: string
+          pattern: '^P(?=\d+[YMWD])(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$'
+      required:
+        - fileId
+        - retryAfter
+
     RetrieveFileDataResponse:
       type: object
       properties:
@@ -259,3 +271,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FailureDetails'
+        retries:
+          type: array
+          items:
+            $ref: '#/components/schemas/RetryFileInfo'
