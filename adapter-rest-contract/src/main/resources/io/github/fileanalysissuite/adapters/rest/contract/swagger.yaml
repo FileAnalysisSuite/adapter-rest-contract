@@ -232,7 +232,7 @@ components:
             $ref: '#/components/schemas/RepositoryFile'
       required:
         - files
-
+    
     FileDataItem:
       type: object
       properties:
