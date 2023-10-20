@@ -126,7 +126,7 @@
                     <dependency>
                         <groupId>org.codehaus.groovy</groupId>
                         <artifactId>groovy-all</artifactId>
-                        <version>2.4.21</version>
+                        <version>${gmavenplusPluginGroovyVersion}</version>
                         <scope>runtime</scope>
                     </dependency>
                 </dependencies>
@@ -134,7 +134,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.0.2</version>
                 <executions>
                     <execution>
                         <id>copy-swagger-codegen-files</id>
