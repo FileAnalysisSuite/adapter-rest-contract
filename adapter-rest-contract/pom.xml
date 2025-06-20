@@ -28,5 +28,6 @@
     </parent>
 
     <artifactId>adapter-rest-contract</artifactId>
+    <name>adapter-rest-contract</name>
 
 </project>

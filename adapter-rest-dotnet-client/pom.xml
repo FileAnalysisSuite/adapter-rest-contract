@@ -28,6 +28,7 @@
     </parent>
 
     <artifactId>adapter-rest-dotnet-client</artifactId>
+    <name>adapter-rest-dotnet-client</name>
     <packaging>pom</packaging>
 
     <properties>
